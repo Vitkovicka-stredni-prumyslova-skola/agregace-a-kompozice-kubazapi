@@ -22,19 +22,37 @@ public class Trida
     public void PridejStudenta(Student s)
     {
         if(s == null) throw new ArgumentNullException(nameof(s));
+
         if(Studenti.Contains(s))
             throw new InvalidOperationException("Student již je ve třídě zapsán.");
+
         Studenti.Add(s);
     }
 
     public void OdeberStudenta(Student s)
     {
-        // TODO
+        if(s == null) throw new ArgumentNullException(nameof(s));
+        
+        if(!Studenti.Contains(s))
+            throw new InvalidOperationException("Student není ve třídě zapsán.");
+
+        Studenti.Remove(s);
     }
 
     public void VypisStudenty()
     {
-        // TODO
+        Console.WriteLine($"Třída: {Nazev}");
+
+        if(Studenti.Count == 0)
+        {
+            Console.WriteLine("Žádní studenti nejsou zapsáni.");
+            return;
+        }
+
+        for(int i = 0; i < Studenti.Count; i++)
+        {
+            Console.WriteLine($"{ i+1 }. {Studenti[i]}");
+        }
     }
 }
 }
