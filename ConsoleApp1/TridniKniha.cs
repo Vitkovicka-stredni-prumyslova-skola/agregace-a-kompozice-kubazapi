@@ -31,6 +31,8 @@ namespace AgregaceAKompozice
             return;
         }
 
+        Console.WriteLine($"Docházka pro {s}:");
+        
         foreach(var zaznam in _dochazka[s])
         {
             Console.WriteLine(zaznam);
