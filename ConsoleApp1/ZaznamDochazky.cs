@@ -3,11 +3,13 @@ namespace AgregaceAKompozice
     public class ZaznamDochazky
 {
     public DateOnly Datum { get; }
+
     public bool JePritomen { get; }
 
     public ZaznamDochazky(DateOnly datum, bool jePritomen)
     {
-        // TODO
+        Datum = datum;
+        JePritomen = jePritomen;
     }
 
     public override string ToString()
