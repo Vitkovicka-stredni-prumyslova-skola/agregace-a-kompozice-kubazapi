@@ -12,12 +12,10 @@ namespace AgregaceAKompozice
     public void ZapisDochazku(Student s, DateOnly datum, bool pritomen)
     {
         if(s == null) throw new ArgumentNullException(nameof(s));
-
         if(!_dochazka.ContainsKey(s))
         {
             _dochazka[s] = new List<ZaznamDochazky>();
         }
-
         _dochazka[s].Add(new ZaznamDochazky(datum, pritomen));
     }
 

@@ -3,7 +3,7 @@ namespace AgregaceAKompozice
 public class Trida
 {
     public string Nazev { get; }
-    public List<Student> Studenti { get; } = new ();
+    public List<Student> Studenti { get; } = new();
 
     // KOMPOZICE: třídní kniha vzniká spolu s třídou
     public TridniKniha TridniKniha { get; }
@@ -11,7 +11,7 @@ public class Trida
     public Trida(string nazev)
     {
         if(string.IsNullOrWhiteSpace(nazev))
-           throw new ArgumentException("Název třídy nesmí být prázdný.", nameof(nazev));
+                throw new ArgumentException("Název třídy nesmí být prázdné.", nameof(nazev));
 
         Nazev = nazev.Trim();
 
@@ -32,7 +32,7 @@ public class Trida
     public void OdeberStudenta(Student s)
     {
         if(s == null) throw new ArgumentNullException(nameof(s));
-        
+
         if(!Studenti.Contains(s))
             throw new InvalidOperationException("Student není ve třídě zapsán.");
 
@@ -42,16 +42,18 @@ public class Trida
     public void VypisStudenty()
     {
         Console.WriteLine($"Třída: {Nazev}");
+        Console.WriteLine("Seznam studentů:");
 
         if(Studenti.Count == 0)
         {
-            Console.WriteLine("Žádní studenti nejsou zapsáni.");
+            Console.WriteLine("Žádní studenti.");
             return;
         }
 
-        for(int i = 0; i < Studenti.Count; i++)
+        int index = 1;
+        foreach(var student in Studenti)
         {
-            Console.WriteLine($"{ i+1 }. {Studenti[i]}");
+            Console.WriteLine($"{index++}. {student}");
         }
     }
 }
